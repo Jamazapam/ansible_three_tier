@@ -1,0 +1,15 @@
+---
+# tasks file for pre_configuration
+
+- name: enable repos for three tier app
+  template:
+      src: open_three-tier-app.j2
+    dest: /etc/yum.repos.d/open_three-tier-app.repo
+    mode: 0644
+
+- name: install packages
+  yum:
+    name: "{{ item }}" 
+    state: latest
+  with_items:
+    - httpie
