@@ -1,0 +1,12 @@
+---
+# tasks file for postgresql
+
+- name: install postgres
+  yum:
+    name: postgresql-server
+    state: latest
+
+- name: Initialize postgres                                                                                                                                                                         
+  shell: "postgresql-setup initdb"
+  args:
+    creates: /var/lib/pgsql/data/postgresql.conf

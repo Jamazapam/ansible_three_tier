@@ -1,0 +1,8 @@
+---
+# handlers file for postgresql
+
+- name: Install service postgres
+  service:
+    name: postgresql
+    state: started
+    enabled: yes
