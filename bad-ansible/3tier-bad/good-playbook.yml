@@ -1,1 +1,12 @@
 ---
+- name: deploy good-ansible
+  hosts: all
+  gather_facts: true
+  become: true
+  roles:
+    - {name: pre_configuration}
+    - {name: tomcat, when: inventory_hostname in groups.apps }
+    - {name: apache , when: inventory_hostname in groups.apps }
+    - {name: frontend_utils, when: inventory_hostname in groups.frontends }
+    - {name: ha_proxy, when: inventory_hostname in groups.frontends }
+    - {name: postgresql, when: inventory_hostname in groups.appdbs }

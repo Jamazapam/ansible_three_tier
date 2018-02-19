@@ -1,0 +1,9 @@
+---
+# tasks file for frontend_utils
+
+- name: install util packages
+  yum:
+    name: "{{ item }}" 
+    state: latest
+  with_items:
+    - httpie

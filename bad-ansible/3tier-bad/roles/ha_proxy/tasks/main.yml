@@ -5,7 +5,7 @@
   yum:
     name: haproxy
     state: latest
-    notify: enable_haproxy    
+  notify: enable_haproxy    
 
 - name: configure haproxy to load balance over app servers
   template:

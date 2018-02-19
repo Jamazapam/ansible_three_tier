@@ -2,7 +2,7 @@
 # handlers file for ha_proxy
 
 - name: enable_haproxy
-    service:
+  service:
     name: haproxy
     state: started
     enabled: yes
